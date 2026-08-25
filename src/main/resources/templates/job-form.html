@@ -1,0 +1,64 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add Job</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f5f5f5;
+      }
+      h1 {
+        color: #1f3864;
+      }
+      form {
+        background: white;
+        padding: 24px;
+        border-radius: 6px;
+        max-width: 400px;
+      }
+      label {
+        display: block;
+        margin-top: 12px;
+        font-weight: bold;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #1f3864;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add New Job</h1>
+    <form th:action="@{/jobs/add}" th:object="${job}" method="post">
+      <label>Title</label>
+      <input type="text" th:field="*{title}" required />
+
+      <label>Company</label>
+      <input type="text" th:field="*{company}" required />
+
+      <label>Location</label>
+      <input type="text" th:field="*{location}" required />
+
+      <label>Salary</label>
+      <input type="text" th:field="*{salary}" />
+
+      <label>Description</label>
+      <textarea th:field="*{description}" rows="4"></textarea>
+
+      <button type="submit">Add Job</button>
+    </form>
+  </body>
+</html>
